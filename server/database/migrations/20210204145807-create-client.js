@@ -1,77 +1,84 @@
 module.exports = {
-    up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('Users', {
+    up: async (queryInterface, DataTypes) => {
+        await queryInterface.createTable('clients', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
-                type: Sequelize.INTEGER
+                type: DataTypes.INTEGER
+            },
+            uuid: {
+                type: DataTypes.UUID,
+                defaultValue: DataTypes.UUIDV4
             },
             firstName: {
-                type: Sequelize.STRING,
-                allowNull: false
+                type: DataTypes.STRING
             },
             lastName: {
-                type: Sequelize.STRING,
-                allowNull: false
+                type: DataTypes.STRING
             },
             email: {
-                type: Sequelize.STRING,
+                type: DataTypes.STRING,
                 allowNull: false,
                 unique: true
             },
             avatar: {
-                type: Sequelize.STRING
+                type: DataTypes.STRING
+            },
+            publicId: {
+                type: DataTypes.STRING
             },
             username: {
-                type: Sequelize.STRING,
-                allowNull: false,
+                type: DataTypes.STRING,
                 unique: true
             },
             password: {
-                type: Sequelize.STRING,
+                type: DataTypes.STRING,
                 allowNull: false
             },
             country: {
-                type: Sequelize.STRING
+                type: DataTypes.STRING
             },
             address: {
-                type: Sequelize.STRING
+                type: DataTypes.STRING
             },
             city: {
-                type: Sequelize.STRING
+                type: DataTypes.STRING
             },
             province: {
-                type: Sequelize.STRING
+                type: DataTypes.STRING
+            },
+            postalCode: {
+                type: DataTypes.STRING
             },
             gender: {
-                type: Sequelize.ENUM,
+                type: DataTypes.ENUM,
                 values: ['male', 'female']
             },
             height: {
-                type: Sequelize.STRING
+                type: DataTypes.STRING
             },
             weight: {
-                type: Sequelize.STRING
+                type: DataTypes.STRING
             },
             isEmailVerified: {
-                type: Sequelize.BOOLEAN,
+                type: DataTypes.BOOLEAN,
                 defaultValue: false
             },
             dateOfBirth: {
-                type: Sequelize.DATE
+                type: DataTypes.DATE
             },
             createdAt: {
                 allowNull: false,
-                type: Sequelize.DATE
+                type: DataTypes.DATE
             },
             updatedAt: {
                 allowNull: false,
-                type: Sequelize.DATE
+                type: DataTypes.DATE
             }
         });
     },
     down: async queryInterface => {
-        await queryInterface.dropTable('Users');
+        await queryInterface.dropTable('clients');
     }
 };
