@@ -1,5 +1,5 @@
 import express from 'express';
-// import compression from 'compression';
+import compression from 'compression';
 import helmet from 'helmet';
 import cors from 'cors';
 import httpStatus from 'http-status';
