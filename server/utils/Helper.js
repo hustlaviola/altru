@@ -60,11 +60,15 @@ export default class Helper {
      * @method generateRandomDigits
      * @description Generates a token for email service
      * @static
-     * @param {number} limit - data object
+     * @param {number} length - Digits length
      * @returns {object} JSON response
      * @memberof Helper
      */
-    static generateRandomDigits(limit) {
-        return Math.floor(Math.random() * limit);
+    static generateRandomDigits(length) {
+        let digits = '';
+        for (let i = 0; i < length; i += 1) {
+            digits += Math.floor(Math.random() * 10);
+        }
+        return digits;
     }
 }

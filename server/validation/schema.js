@@ -94,7 +94,9 @@ const validator = method => {
             body('code').exists()
                 .withMessage('code is required')
                 .isInt()
-                .withMessage('code must be integer')
+                .withMessage('Invalid or expired code')
+                .isLength({ min: 4, max: 4 })
+                .withMessage('Invalid or expired code')
         ];
     default:
         break;

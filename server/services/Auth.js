@@ -65,7 +65,7 @@ export default class AuthService {
                 }
             };
         } catch (error) {
-            eLogger.error('An error occurred while updating profile', error);
+            eLogger.error('An error occurred while logging in', error);
             return {
                 isSuccessful: false,
                 status: httpStatus.INTERNAL_SERVER_ERROR,
@@ -128,7 +128,7 @@ export default class AuthService {
                 }
             };
         } catch (error) {
-            eLogger.error('An error occurred while updating profile', error);
+            eLogger.error('An error occurred while logging in', error);
             return {
                 isSuccessful: false,
                 status: httpStatus.INTERNAL_SERVER_ERROR,
@@ -160,7 +160,7 @@ export default class AuthService {
                 };
             }
             user = user.dataValues;
-            const code = Helper.generateRandomDigits(1000000);
+            const code = Helper.generateRandomDigits(6);
             const obj = {
                 userUuid: user.uuid, email, code, role: 'client', tokenType: 'password'
             };
@@ -201,7 +201,7 @@ export default class AuthService {
                 };
             }
             user = user.dataValues;
-            const code = Helper.generateRandomDigits(1000000);
+            const code = Helper.generateRandomDigits(6);
             const obj = {
                 userUuid: user.uuid, email, code, role: 'trainer', tokenType: 'password'
             };
